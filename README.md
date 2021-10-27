@@ -1,0 +1,2 @@
+# PracticeAspNetCoreFromScratch
+FromZeroToHero
