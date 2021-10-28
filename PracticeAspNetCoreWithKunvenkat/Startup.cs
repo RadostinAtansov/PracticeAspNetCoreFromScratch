@@ -38,10 +38,11 @@ namespace PracticeAspNetCoreWithKunvenkat
             //app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
 
-            //app.UseMvc(route =>
-            //route.MapRoute("default", "{controller=Home}/{action=index}/{id?}"));
+            app.UseMvc(route =>
+            route.MapRoute("default", "{controller=home}/{action=index}/{id?}")); // without attribute
 
-            app.UseMvc();
+
+            //app.UseMvc(); only with attribute
         }
     }
 }

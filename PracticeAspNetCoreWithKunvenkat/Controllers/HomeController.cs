@@ -46,9 +46,13 @@ namespace PracticeAspNetCoreWithKunvenkat.Controller
         [HttpPost]
         public IActionResult Create(Employee employee)
         {
-            Employee newEmployee = _employeeRepository.AddEmployee(employee);
+            if (ModelState.IsValid)
+            {
+                Employee newEmployee = _employeeRepository.AddEmployee(employee);
 
-            return RedirectToAction("details", new { newEmployee.Id });
+                return RedirectToAction("details", new { newEmployee.Id });
+            }
+            return View();
         }
 
     }
