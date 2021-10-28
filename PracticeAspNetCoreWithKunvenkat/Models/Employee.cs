@@ -15,7 +15,8 @@
         public Dept Department { get; set; }
 
         [Required]
-        [Display(Name="Office Email")]
+        [Display(Name = "Office Email")]
+        [RegularExpression("asd")]
         public string Email { get; set; }
     }
 }
