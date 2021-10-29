@@ -11,12 +11,14 @@
         [MaxLength(25)]
         public string Name { get; set; }
 
-        [Required]
+
         public Dept Department { get; set; }
 
         [Required]
         [Display(Name = "Office Email")]
-        [RegularExpression("asd")]
+        //[RegularExpression("", ErrorMessage = "Blq blq blq")]
         public string Email { get; set; }
+
+        public string PhotoPat { get; set; }
     }
 }

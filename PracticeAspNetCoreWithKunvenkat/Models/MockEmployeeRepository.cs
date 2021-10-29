@@ -1,10 +1,8 @@
 ﻿namespace PracticeAspNetCoreWithKunvenkat.Models
 {
 
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
 
     public class MockEmployeeRepository : IEmployeeRepository
     {
@@ -28,6 +26,16 @@
             return employee;
         }
 
+        public Employee Delete(int id)
+        {
+            var employee = _employeeList.FirstOrDefault(e => e.Id == id);
+            if (employee != null)
+            {
+                _employeeList.Remove(employee);
+            }
+            return employee;
+        }
+
         public Employee GetEmployee(int id)
         {
             return this._employeeList.FirstOrDefault(e => e.Id == id);
@@ -36,6 +44,18 @@
         public IEnumerable<Employee> GetEmployees()
         {
             return _employeeList;
+        }
+
+        public Employee Update(Employee employeeChanges)
+        {
+            var employee = _employeeList.FirstOrDefault(e => e.Id == employeeChanges.Id);
+            if (employee != null)
+            {
+                employee.Name = employeeChanges.Name;
+                employee.Email = employeeChanges.Email;
+                employee.Department = employeeChanges.Department;
+            }
+            return employee;
         }
     }
 }
