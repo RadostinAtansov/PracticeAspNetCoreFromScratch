@@ -10,8 +10,6 @@ namespace PracticeAspNetCoreWithKunvenkat.ViewModel
     public class EmployeeCreateViewModel
     {
 
-        public int Id { get; set; }
-
         [Required]
         [MaxLength(25)]
         public string Name { get; set; }

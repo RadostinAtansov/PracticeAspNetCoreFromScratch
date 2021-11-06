@@ -9,7 +9,6 @@ namespace PracticeAspNetCoreWithKunvenkat.Controller
     using System;
     using System.IO;
 
-    [Route("[controller]/[action]")]
     public class HomeController : Controller
     {
         private readonly IEmployeeRepository _employeeRepository;
@@ -22,16 +21,12 @@ namespace PracticeAspNetCoreWithKunvenkat.Controller
             this.hostingEnvironment = hostingEnvironment;
         }
 
-
-        [Route("~/Home")]
-        [Route("~/")]
         public ViewResult Index()
         {
             var model = _employeeRepository.GetEmployees();
             return View(model);
         }
 
-        [Route("{id?}")]
         public ViewResult Details(int? id)
         {
 
@@ -54,18 +49,8 @@ namespace PracticeAspNetCoreWithKunvenkat.Controller
         {
             if (ModelState.IsValid)
             {
-                string uniqueFileName = null;
-                if (model.Photos != null && model.Photos.Count > 0)
-                {
-                    foreach (IFormFile photo in model.Photos)
-                    {
-                        string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "images");
-                        uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
-                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                        photo.CopyTo(new FileStream(filePath, FileMode.Create));
-                    }
-                    
-                }
+                string uniqueFileName = ProcessUploadedFile(model);
+                
 
                 Employee newEmployee = new Employee
                 {
@@ -82,5 +67,66 @@ namespace PracticeAspNetCoreWithKunvenkat.Controller
             return View();
         }
 
+        [HttpGet]
+        public ViewResult Edit(int id)
+        {
+            Employee employee = _employeeRepository.GetEmployee(id);
+            EmployeeEditViewModel emplyeeEditViewModel = new EmployeeEditViewModel
+            {
+                Id = employee.Id,
+                Name = employee.Name,
+                Email = employee.Email,
+                Department = employee.Department,
+                ExistingPhotoPath = employee.PhotoPat
+            };
+            return View(emplyeeEditViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EmployeeEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Employee employee = _employeeRepository.GetEmployee(model.Id);
+                employee.Name = model.Name;
+                employee.Email = model.Email;
+                employee.Department = model.Department;
+                string uniqueFileName = ProcessUploadedFile(model);
+
+                if (model.ExistingPhotoPath != null)
+                {
+                    if (model.ExistingPhotoPath != null)
+                    {
+                        string filePath = Path.Combine(hostingEnvironment.WebRootPath + 
+                            "images", model.ExistingPhotoPath);
+                        System.IO.File.Delete(filePath);
+                    }
+                    employee.PhotoPat = ProcessUploadedFile(model);
+                }
+
+                _employeeRepository.Update(employee);
+
+                return RedirectToAction("index");
+            }
+            return View();
+        }
+
+        private string ProcessUploadedFile(EmployeeCreateViewModel model)
+        {
+            string uniqueFileName = null;
+            if (model.Photos != null && model.Photos.Count > 0)
+            {
+                foreach (IFormFile photo in model.Photos)
+                {
+                    string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "images");
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                }
+
+            }
+
+            return uniqueFileName;
+        }
     }
 }
