@@ -3,6 +3,7 @@ namespace PracticeAspNetCoreWithKunvenkat.ViewModel
 {
     using Microsoft.AspNetCore.Http;
     using PracticeAspNetCoreWithKunvenkat.Models;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
 
@@ -23,7 +24,7 @@ namespace PracticeAspNetCoreWithKunvenkat.ViewModel
         //[RegularExpression("", ErrorMessage = "Blq blq blq")]
         public string Email { get; set; }
 
-        public IFormFile Photo { get; set; }
+        public List<IFormFile> Photos { get; set; }
 
     }
 }
