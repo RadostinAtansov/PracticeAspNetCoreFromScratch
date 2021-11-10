@@ -37,6 +37,12 @@ namespace PracticeAspNetCoreWithKunvenkat
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+            }
+
+            app.UseStatusCodePagesWithRedirects("/Error/{0}");
 
             app.UseStaticFiles(); // combine seDefauteFile and UseStaticFilese.
             //app.UseDefaultFiles();
