@@ -30,7 +30,7 @@ namespace PracticeAspNetCoreWithKunvenkat.Controller
         public ViewResult Details(int? id)
         {
 
-            throw new Exception("Error in Details");
+            //throw new Exception("Error in Details");
 
             Employee employee = _employeeRepository.GetEmployee(id.Value);
 

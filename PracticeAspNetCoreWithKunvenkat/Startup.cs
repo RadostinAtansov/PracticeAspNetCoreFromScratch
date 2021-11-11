@@ -2,6 +2,7 @@ namespace PracticeAspNetCoreWithKunvenkat
 {
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +27,9 @@ namespace PracticeAspNetCoreWithKunvenkat
             services.AddDbContextPool<AppDbContex>(options =>
             options.UseSqlServer(_config.GetConnectionString("EmployeeDbConnection")));
 
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContex>();
+
             services.AddMvc(options => options.EnableEndpointRouting = false).AddXmlSerializerFormatters();
             services.AddScoped<IEmployeeRepository, SQLEmployeeReository>(); ;
         }
@@ -48,7 +52,7 @@ namespace PracticeAspNetCoreWithKunvenkat
             //app.UseDefaultFiles();
             //app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
-
+            app.UseAuthentication();
             app.UseMvc(route =>
             route.MapRoute("default", "{controller=home}/{action=index}/{id?}")); // without attribute
 

@@ -1,11 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace PracticeAspNetCoreWithKunvenkat.Models
+﻿namespace PracticeAspNetCoreWithKunvenkat.Models
 {
 
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-
-    public class AppDbContex : DbContext
+    public class AppDbContex : IdentityDbContext
     {
         public AppDbContex(DbContextOptions<AppDbContex> options)
             : base(options)
@@ -17,6 +16,7 @@ namespace PracticeAspNetCoreWithKunvenkat.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Seed();
         }
     }
