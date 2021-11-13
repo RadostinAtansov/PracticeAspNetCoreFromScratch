@@ -1,6 +1,7 @@
 ﻿
 namespace PracticeAspNetCoreWithKunvenkat.Controller
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ namespace PracticeAspNetCoreWithKunvenkat.Controller
     using System;
     using System.IO;
 
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IEmployeeRepository _employeeRepository;
@@ -21,6 +23,7 @@ namespace PracticeAspNetCoreWithKunvenkat.Controller
             this.hostingEnvironment = hostingEnvironment;
         }
 
+        [AllowAnonymous]
         public ViewResult Index()
         {
             var model = _employeeRepository.GetEmployees();
