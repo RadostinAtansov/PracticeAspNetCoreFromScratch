@@ -26,8 +26,15 @@ using PracticeAspNetCoreWithKunvenkat.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\radul\Desktop\aspNetCore\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5ee4d4b70f48aa1a33d936ce50cb1d50e10864d6", @"/Views/Home/EmployeeNotFound.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"677d11e2cff64d637f3bcc5e8a827d394aa28c15", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7684d50e5b559eeaaf441342aefa1c85be513b2b", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_EmployeeNotFound : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<int>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -76,7 +83,7 @@ using PracticeAspNetCoreWithKunvenkat.Models;
 #line hidden
 #nullable disable
             WriteLiteral(" cannot be found\r\n    </h5>\r\n</div>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5ee4d4b70f48aa1a33d936ce50cb1d50e10864d65348", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5ee4d4b70f48aa1a33d936ce50cb1d50e10864d65588", async() => {
                 WriteLiteral("\r\n    Click here to see list of all employees\r\n");
             }
             );

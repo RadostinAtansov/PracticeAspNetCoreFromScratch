@@ -27,7 +27,11 @@ namespace PracticeAspNetCoreWithKunvenkat
             services.AddDbContextPool<AppDbContex>(options =>
             options.UseSqlServer(_config.GetConnectionString("EmployeeDbConnection")));
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<IdentityUser, IdentityRole>(option =>
+            {
+                option.Password.RequiredLength = 10;
+                option.Password.RequiredUniqueChars = 3;
+            })
                 .AddEntityFrameworkStores<AppDbContex>();
 
             services.AddMvc(options => options.EnableEndpointRouting = false).AddXmlSerializerFormatters();
@@ -51,8 +55,11 @@ namespace PracticeAspNetCoreWithKunvenkat
             app.UseStaticFiles(); // combine seDefauteFile and UseStaticFilese.
             //app.UseDefaultFiles();
             //app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
             app.UseAuthentication();
+
+            app.UseMvcWithDefaultRoute();
+
+
             app.UseMvc(route =>
             route.MapRoute("default", "{controller=home}/{action=index}/{id?}")); // without attribute
 
