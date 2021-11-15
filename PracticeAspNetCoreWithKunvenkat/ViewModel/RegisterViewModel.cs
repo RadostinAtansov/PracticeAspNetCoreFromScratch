@@ -1,7 +1,7 @@
 ﻿namespace PracticeAspNetCoreWithKunvenkat.ViewModel
 {
-
-   using System.ComponentModel.DataAnnotations;
+    using Microsoft.AspNetCore.Mvc;
+    using System.ComponentModel.DataAnnotations;
 
 
     public class RegisterViewModel
@@ -9,6 +9,7 @@
 
         [Required]
         [EmailAddress]
+        [Remote(action: "IsEmailInUse", controller: "Account")]
         public string Email { get; set; }
 
         [Required]
