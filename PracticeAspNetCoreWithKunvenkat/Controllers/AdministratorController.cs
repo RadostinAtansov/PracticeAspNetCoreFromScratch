@@ -25,7 +25,7 @@
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("index", "home");
+                    return RedirectToAction("ListRoles", "administrator");
                 }
 
                 foreach (IdentityError error in result.Errors)
@@ -35,6 +35,13 @@
             }
 
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult ListRoles()
+        {
+            var roles = roleManager.Roles;
+            return View(roles);
         }
     }
 }

@@ -82,3 +82,4 @@ C:\Users\radul\Desktop\aspNetCore\PracticeAspNetCoreFromScratch\PracticeAspNetCo
 C:\Users\radul\Desktop\aspNetCore\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\radul\Desktop\aspNetCore\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\radul\Desktop\aspNetCore\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\Razor\Views\Administrator\CreateRole.cshtml.g.cs
+C:\Users\radul\Desktop\aspNetCore\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\Razor\Views\Administrator\ListRoles.cshtml.g.cs
