@@ -27,7 +27,7 @@ namespace PracticeAspNetCoreWithKunvenkat
             services.AddDbContextPool<AppDbContex>(options =>
             options.UseSqlServer(_config.GetConnectionString("EmployeeDbConnection")));
 
-            services.AddIdentity<IdentityUser, IdentityRole>(option =>
+            services.AddIdentity<ApplicationUser, IdentityRole>(option =>
             {
                 option.Password.RequiredLength = 10;
                 option.Password.RequiredUniqueChars = 3;
