@@ -1,6 +1,7 @@
 ﻿namespace PracticeAspNetCoreWithKunvenkat.ViewModel
 {
     using Microsoft.AspNetCore.Mvc;
+    using PracticeAspNetCoreWithKunvenkat.Utilities;
     using System.ComponentModel.DataAnnotations;
 
 
@@ -10,6 +11,7 @@
         [Required]
         [EmailAddress]
         [Remote(action: "IsEmailInUse", controller: "Account")]
+        [ValidEmailDomain(allowedDomain: "abv.bg", ErrorMessage = "Email domain must be abv.bg")]
         public string Email { get; set; }
 
         [Required]
