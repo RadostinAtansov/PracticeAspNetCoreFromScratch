@@ -1,5 +1,6 @@
 ﻿namespace PracticeAspNetCoreWithKunvenkat.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using PracticeAspNetCoreWithKunvenkat.Models;
@@ -7,6 +8,7 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
+    [Authorize(Roles = "Admin")]
     public class AdministrationController : Controller
     {
 
@@ -82,7 +84,7 @@
 
             if (role == null)
             {
-                ViewBag.ErrorMessage = $"ROle with Id = {model.Id} cannot be found";
+                ViewBag.ErrorMessage = $"Role with Id = {model.Id} cannot be found";
                 return View("NotFound");
             }
             else
