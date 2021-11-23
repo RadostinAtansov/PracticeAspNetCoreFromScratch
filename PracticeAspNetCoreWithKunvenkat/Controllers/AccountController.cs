@@ -1,5 +1,6 @@
 ﻿namespace PracticeAspNetCoreWithKunvenkat.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using PracticeAspNetCoreWithKunvenkat.Models;
@@ -108,6 +109,13 @@
             }
 
             return View(model);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }

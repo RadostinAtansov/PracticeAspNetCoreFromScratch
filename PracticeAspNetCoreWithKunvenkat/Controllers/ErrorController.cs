@@ -22,19 +22,19 @@ namespace PracticeAspNetCoreWithKunvenkat.Controllers
 
             var statusCodeResult = HttpContext.Features.Get<IStatusCodeReExecuteFeature>();
 
-            switch(statusCode)
+            switch (statusCode)
             {
                 case 404:
                     ViewBag.ErrorMessage = "Sory, the page could not be found";
                     logger.LogWarning($"404 Error Occured. Path = {statusCodeResult.OriginalPath} and QueryString = {statusCodeResult.OriginalQueryString}");
                     break;
             }
-            return View("");
+            return View("NotFound");
         }
 
 
-        [AllowAnonymous]
         [Route("Error")]
+        [AllowAnonymous]
         public IActionResult Error()
         {
             var exceptionDetails = HttpContext.Features.Get<IExceptionHandlerPathFeature>();

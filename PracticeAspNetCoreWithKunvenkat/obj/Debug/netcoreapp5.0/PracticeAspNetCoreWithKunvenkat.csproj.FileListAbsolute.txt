@@ -85,3 +85,4 @@ C:\Users\radul\Desktop\aspNetCore\PracticeAspNetCoreFromScratch\PracticeAspNetCo
 C:\Users\radul\Desktop\aspNetCore\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\Razor\Views\Administration\ListRoles.cshtml.g.cs
 C:\Users\radul\Desktop\aspNetCore\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\Razor\Views\Administration\EditRole.cshtml.g.cs
 C:\Users\radul\Desktop\aspNetCore\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\Razor\Views\Administration\EditUsersInRole.cshtml.g.cs
+C:\Users\radul\Desktop\aspNetCore\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\Razor\Views\Account\AccessDenied.cshtml.g.cs
