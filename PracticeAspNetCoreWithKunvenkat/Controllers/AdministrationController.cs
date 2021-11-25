@@ -22,7 +22,21 @@
             this.roleManager = roleManager;
             this.userManager = userManager;
         }
-            
+
+        [HttpGet]
+        public IActionResult ListUsers()
+        {
+            var users = userManager.Users;
+            return View(users);
+        }
+
+        [HttpGet]
+        public IActionResult CreateRole()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public async Task<IActionResult> CreateRole(CreateRoleViewModel model)
         {
             if (ModelState.IsValid)
