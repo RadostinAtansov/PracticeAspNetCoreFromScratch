@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<ApplicationUser>
 
-@{ 
+@{
     ViewBag.Title = "All Users";
 }
 
@@ -38,6 +38,10 @@
                         <a href="#" class="btn btn-danger" onclick="confirmDelete('@user.Id', true)">Delete</a>
                     </span>
 
+                    @*<script>
+                        var asd = document.getElementById('confirmDelete');
+                        console.log('rararara');
+                    </script>*@
                 </form>
             </div>
         </div>
@@ -51,9 +55,8 @@ else
         </div>
         <div class="card-body">
             <h5 class="card-title">
-
             </h5>
-            <a class="btn btn-primary" style="width:auto" 
+            <a class="btn btn-primary" style="width:auto"
                asp-controller="Account" asp-action="Register">
                 Add new user
             </a>
