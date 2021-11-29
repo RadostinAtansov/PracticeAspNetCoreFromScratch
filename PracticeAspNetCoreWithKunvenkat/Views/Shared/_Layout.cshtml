@@ -3,14 +3,11 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <environment include="Development">
+        <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
         <script src="~/lib/jquery/jquery.js"></script>
         <script src="~/lib/jquery-validate/jquery.validate.js"></script>
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-
-
         <script src="~/bootstrap/js/bootstrap.bundle.js"></script>
-        <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
-
 
     </environment>
     <environment exclude="Development">
@@ -22,6 +19,11 @@
               asp-fallback-test-property="position"
               asp-fallback-test-value="absolute"
               asp-suppress-fallback-integrity="true">
+
+        <script src="~/lib/jquery/jquery.js"></script>
+        <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        <script src="~/bootstrap/js/bootstrap.bundle.js"></script>
     </environment>
     <link href="~/css/site.css" rel="stylesheet" />
     <title>@ViewBag.Title</title>
