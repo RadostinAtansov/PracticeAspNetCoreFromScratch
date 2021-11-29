@@ -34,6 +34,12 @@ namespace PracticeAspNetCoreWithKunvenkat
             })
                 .AddEntityFrameworkStores<AppDbContex>();
 
+            services.AddAuthorization(option =>
+            {
+                option.AddPolicy("DeleteRolePolicy",
+                    policy => policy.RequireClaim("Delete Role"));
+            });
+
             services.AddMvc(options => options.EnableEndpointRouting = false).AddXmlSerializerFormatters();
             services.AddScoped<IEmployeeRepository, SQLEmployeeReository>(); ;
         }
