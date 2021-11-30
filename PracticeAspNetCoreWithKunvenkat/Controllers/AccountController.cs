@@ -7,6 +7,7 @@
     using PracticeAspNetCoreWithKunvenkat.ViewModel;
     using System.Threading.Tasks;
 
+
     public class AccountController : Controller
     {
 
@@ -111,11 +112,5 @@
             return View(model);
         }
 
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult AccessDenied()
-        {
-            return View();
-        }
     }
 }

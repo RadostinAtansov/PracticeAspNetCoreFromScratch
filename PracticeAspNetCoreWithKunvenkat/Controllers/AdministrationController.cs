@@ -7,14 +7,13 @@
     using Microsoft.Extensions.Logging;
     using PracticeAspNetCoreWithKunvenkat.Models;
     using PracticeAspNetCoreWithKunvenkat.ViewModel;
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
 
-    [Authorize(Roles = "Admin")]
+    [Authorize(Policy = "AdminRolePolicy")]
     public class AdministrationController : Controller
     {
 
@@ -29,6 +28,13 @@
             this.roleManager = roleManager;
             this.userManager = userManager;
             this.logger = logger;
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
 
         [HttpGet]
