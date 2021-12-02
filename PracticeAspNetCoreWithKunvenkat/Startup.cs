@@ -46,12 +46,12 @@ namespace PracticeAspNetCoreWithKunvenkat
                     policy => policy.RequireClaim("Delete Role"));
 
                 option.AddPolicy("EditRolePolicy",
-                    policy => policy.RequireClaim("Edit Role"));
+                    policy => policy.RequireClaim("Edit Role", "true"));
                 
                 option.AddPolicy("AdminRolePolicy",
                      policy => policy.RequireRole("Admin"));
             });
-
+            
             services.AddMvc(options => options.EnableEndpointRouting = false).AddXmlSerializerFormatters();
             services.AddScoped<IEmployeeRepository, SQLEmployeeReository>(); ;
         }
