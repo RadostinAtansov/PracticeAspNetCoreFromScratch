@@ -1,5 +1,6 @@
 namespace PracticeAspNetCoreWithKunvenkat
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -10,6 +11,7 @@ namespace PracticeAspNetCoreWithKunvenkat
     using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
     using PracticeAspNetCoreWithKunvenkat.Models;
+    using PracticeAspNetCoreWithKunvenkat.Security;
 
     public class Startup
     {
@@ -46,14 +48,15 @@ namespace PracticeAspNetCoreWithKunvenkat
                     policy => policy.RequireClaim("Delete Role"));
 
                 option.AddPolicy("EditRolePolicy",
-                    policy => policy.RequireClaim("Edit Role", "true"));
+                        policy => policy.AddRequirements(new ManageAdminRoleAndClaimsRequirement()));
                 
                 option.AddPolicy("AdminRolePolicy",
                      policy => policy.RequireRole("Admin"));
             });
             
             services.AddMvc(options => options.EnableEndpointRouting = false).AddXmlSerializerFormatters();
-            services.AddScoped<IEmployeeRepository, SQLEmployeeReository>(); ;
+            services.AddScoped<IEmployeeRepository, SQLEmployeeReository>();
+            services.AddSingleton<IAuthorizationHandler, CanEditOnlyOtherAdminRolesAndClaimsHandler>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
