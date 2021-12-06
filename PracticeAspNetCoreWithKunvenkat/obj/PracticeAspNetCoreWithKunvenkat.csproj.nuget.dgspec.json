@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\radul\\Desktop\\aspNetCore\\PracticeAspNetCoreFromScratch\\PracticeAspNetCoreWithKunvenkat\\PracticeAspNetCoreWithKunvenkat.csproj": {}
+    "C:\\Users\\radul\\Desktop\\asp\\PracticeAspNetCoreFromScratch\\PracticeAspNetCoreWithKunvenkat\\PracticeAspNetCoreWithKunvenkat.csproj": {}
   },
   "projects": {
-    "C:\\Users\\radul\\Desktop\\aspNetCore\\PracticeAspNetCoreFromScratch\\PracticeAspNetCoreWithKunvenkat\\PracticeAspNetCoreWithKunvenkat.csproj": {
+    "C:\\Users\\radul\\Desktop\\asp\\PracticeAspNetCoreFromScratch\\PracticeAspNetCoreWithKunvenkat\\PracticeAspNetCoreWithKunvenkat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\radul\\Desktop\\aspNetCore\\PracticeAspNetCoreFromScratch\\PracticeAspNetCoreWithKunvenkat\\PracticeAspNetCoreWithKunvenkat.csproj",
+        "projectUniqueName": "C:\\Users\\radul\\Desktop\\asp\\PracticeAspNetCoreFromScratch\\PracticeAspNetCoreWithKunvenkat\\PracticeAspNetCoreWithKunvenkat.csproj",
         "projectName": "PracticeAspNetCoreWithKunvenkat",
-        "projectPath": "C:\\Users\\radul\\Desktop\\aspNetCore\\PracticeAspNetCoreFromScratch\\PracticeAspNetCoreWithKunvenkat\\PracticeAspNetCoreWithKunvenkat.csproj",
+        "projectPath": "C:\\Users\\radul\\Desktop\\asp\\PracticeAspNetCoreFromScratch\\PracticeAspNetCoreWithKunvenkat\\PracticeAspNetCoreWithKunvenkat.csproj",
         "packagesPath": "C:\\Users\\radul\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\radul\\Desktop\\aspNetCore\\PracticeAspNetCoreFromScratch\\PracticeAspNetCoreWithKunvenkat\\obj\\",
+        "outputPath": "C:\\Users\\radul\\Desktop\\asp\\PracticeAspNetCoreFromScratch\\PracticeAspNetCoreWithKunvenkat\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -89,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

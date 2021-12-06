@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "W7v83D8Grl1LIxVYiJBtzZLvcjHyiHiCA/JG5nWril/YcncSX5ydRfh/nU5JN7LgKOSN3/4GZeEZAeSklRnimA==",
+  "dgSpecHash": "9w/+Z5zPIIz4uuyz/dE/inm/lTIx7Acwywbk3+AVI9zvDqrOelX3zn3oI/o7l2dIRxeU1T8WDfOKG8gzOH8njg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\radul\\Desktop\\aspNetCore\\PracticeAspNetCoreFromScratch\\PracticeAspNetCoreWithKunvenkat\\PracticeAspNetCoreWithKunvenkat.csproj",
+  "projectFilePath": "C:\\Users\\radul\\Desktop\\asp\\PracticeAspNetCoreFromScratch\\PracticeAspNetCoreWithKunvenkat\\PracticeAspNetCoreWithKunvenkat.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\radul\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\radul\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
