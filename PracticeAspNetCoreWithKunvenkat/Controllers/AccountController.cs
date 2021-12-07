@@ -6,6 +6,7 @@
     using PracticeAspNetCoreWithKunvenkat.Models;
     using PracticeAspNetCoreWithKunvenkat.ViewModel;
     using System.Linq;
+    using System.Security.Claims;
     using System.Threading.Tasks;
 
 
@@ -56,8 +57,8 @@
 
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { 
-                    UserName = model.Email, 
+                var user = new ApplicationUser {
+                    UserName = model.Email,
                     Email = model.Email,
                     City = model.City
                 };
@@ -65,7 +66,7 @@
 
                 if (result.Succeeded)
                 {
-                   await signInManager.SignInAsync(user, isPersistent: false);
+                    await signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("index", "home");
                 }
 
@@ -114,7 +115,7 @@
                     }
                 }
 
-                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
             }
 
             return View(model);
@@ -129,6 +130,74 @@
 
             var properties = signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
             return new ChallengeResult(provider, properties);
+        }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> 
+            ExternalLoginCallback(string returnUrl = null, string remoteError = null)
+        {
+            returnUrl = returnUrl ?? Url.Content("~/");
+
+            LoginViewModel loginViewModel = new LoginViewModel
+            {
+                ReturnUrl = returnUrl,
+                ExteralLogins = (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList(),
+            };
+
+            if (remoteError != null)
+            {
+                ModelState.AddModelError(string.Empty, $"Error from external provider: {remoteError}");
+
+                return View("Login", loginViewModel);
+            }
+
+            var info = await signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
+            {
+                ModelState.AddModelError(string.Empty, "Error loading external login information.");
+
+                return View("Login", loginViewModel);
+            }
+
+            var signInResult = await signInManager.ExternalLoginSignInAsync(info.LoginProvider,
+                                     info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
+
+            if (signInResult.Succeeded)
+            {
+                return LocalRedirect(returnUrl);
+            }
+            else
+            {
+                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+
+                if (email != null)
+                {
+                    var user = await userManager.FindByEmailAsync(email);
+
+                    if (user == null)
+                    {
+                        user = new ApplicationUser
+                        {
+                            UserName = info.Principal.FindFirstValue(ClaimTypes.Email),
+                            Email = info.Principal.FindFirstValue(ClaimTypes.Email)
+                        };
+
+                        await userManager.CreateAsync(user);
+                    }
+
+                    await userManager.AddLoginAsync(user, info);
+                    await signInManager.SignInAsync(user, isPersistent: false);
+
+                    return LocalRedirect(returnUrl);
+                }
+
+                ViewBag.ErrorTtle = $"Email claim not received from: {info.LoginProvider}";
+                ViewBag.ErrorMessage = "Please contact support on hapa_21@abv.bg";
+
+                return View("Error");
+            }
+            
+
         }
     }
 }
