@@ -1,7 +1,8 @@
 ﻿
 namespace PracticeAspNetCoreWithKunvenkat.ViewModel
 {
-
+    using Microsoft.AspNetCore.Authentication;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public class LoginViewModel
@@ -17,5 +18,8 @@ namespace PracticeAspNetCoreWithKunvenkat.ViewModel
         [Display(Name = "Remember me")]
         public bool RememberMe { get; set; }
 
+        public string ReturnUrl { get; set; }
+
+        public IList<AuthenticationScheme> ExteralLogins { get; set; }
     }
 }

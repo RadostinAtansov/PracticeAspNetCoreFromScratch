@@ -37,6 +37,13 @@ namespace PracticeAspNetCoreWithKunvenkat
             })
                 .AddEntityFrameworkStores<AppDbContex>();
 
+            services.AddAuthentication()
+                    .AddGoogle(options =>
+                    {
+                        options.ClientId = "1043436038570-kj3b3vpjsn5ebg9qalp95v471fq048fb.apps.googleusercontent.com";
+                        options.ClientSecret = "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";
+                    });
+
             services.ConfigureApplicationCookie(options =>
             { 
                 options.AccessDeniedPath = new PathString("/Administration/AccessDenied");

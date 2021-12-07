@@ -5,6 +5,7 @@
     using Microsoft.AspNetCore.Mvc;
     using PracticeAspNetCoreWithKunvenkat.Models;
     using PracticeAspNetCoreWithKunvenkat.ViewModel;
+    using System.Linq;
     using System.Threading.Tasks;
 
 
@@ -79,9 +80,16 @@
 
 
         [HttpGet]
-        public IActionResult Login()
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(string returnUrl)
         {
-            return View();
+            LoginViewModel model = new LoginViewModel
+            {
+                ReturnUrl = returnUrl,
+                ExteralLogins = (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
+            };
+
+            return View(model);
         }
 
         [HttpPost]
@@ -112,5 +120,15 @@
             return View(model);
         }
 
+        [AllowAnonymous]
+        [HttpPost]
+        public IActionResult ExternalLogin(string provider, string returnUrl)
+        {
+            var redirectUrl = Url.Action("ExternalLoginCallback", "Account",
+                              new { ReturnUrl = returnUrl });
+
+            var properties = signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+            return new ChallengeResult(provider, properties);
+        }
     }
 }

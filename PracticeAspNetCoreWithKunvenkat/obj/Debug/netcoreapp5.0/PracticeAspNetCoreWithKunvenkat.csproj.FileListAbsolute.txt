@@ -182,3 +182,4 @@ C:\Users\radul\Desktop\asp\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithK
 C:\Users\radul\Desktop\asp\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\ref\PracticeAspNetCoreWithKunvenkat.dll
 C:\Users\radul\Desktop\asp\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\PracticeAspNetCoreWithKunvenkat.pdb
 C:\Users\radul\Desktop\asp\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\PracticeAspNetCoreWithKunvenkat.genruntimeconfig.cache
+C:\Users\radul\Desktop\asp\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\bin\Debug\netcoreapp5.0\Microsoft.AspNetCore.Authentication.Google.dll
