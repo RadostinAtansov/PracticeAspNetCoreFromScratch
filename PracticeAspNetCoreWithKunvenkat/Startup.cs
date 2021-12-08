@@ -39,6 +39,7 @@ namespace PracticeAspNetCoreWithKunvenkat
             {
                 option.Password.RequiredLength = 10;
                 option.Password.RequiredUniqueChars = 3;
+                option.SignIn.RequireConfirmedEmail = true;
             })
                 .AddEntityFrameworkStores<AppDbContex>();
 
