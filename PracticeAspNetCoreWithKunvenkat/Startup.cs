@@ -12,10 +12,13 @@ namespace PracticeAspNetCoreWithKunvenkat
     using Microsoft.Extensions.Logging;
     using PracticeAspNetCoreWithKunvenkat.Models;
     using PracticeAspNetCoreWithKunvenkat.Security;
+    using System;
+    using System.Configuration;
 
     public class Startup
     {
         private IConfiguration _config;
+        private IConfigurationRoot Configuration;
 
         public Startup(IConfiguration config)
         {
@@ -29,6 +32,8 @@ namespace PracticeAspNetCoreWithKunvenkat
 
             services.AddDbContextPool<AppDbContex>(options =>
             options.UseSqlServer(_config.GetConnectionString("EmployeeDbConnection")));
+
+            
 
             services.AddIdentity<ApplicationUser, IdentityRole>(option =>
             {
@@ -69,6 +74,12 @@ namespace PracticeAspNetCoreWithKunvenkat
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
                               ILogger<Startup> logger)
         {
+
+            var builder = new ConfigurationBuilder()                                    //
+                .SetBasePath(env.ContentRootPath)                                       // ==> add connection string                                                                    to windows variable (secrets.json)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true) //
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);//
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -78,6 +89,9 @@ namespace PracticeAspNetCoreWithKunvenkat
                 app.UseExceptionHandler("/Error");
 
             }
+
+            builder.AddEnvironmentVariables();  // add to secrets.json
+            Configuration = builder.Build();    //
 
             app.UseStatusCodePagesWithReExecute("/Error/{0}");  
 

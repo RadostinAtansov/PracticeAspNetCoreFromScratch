@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("8061cd15-77bf-44a7-accb-d83b7694a87e")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("PracticeAspNetCoreWithKunvenkat")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
