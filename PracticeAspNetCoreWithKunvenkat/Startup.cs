@@ -41,7 +41,8 @@ namespace PracticeAspNetCoreWithKunvenkat
                 option.Password.RequiredUniqueChars = 3;
                 option.SignIn.RequireConfirmedEmail = true;
             })
-                .AddEntityFrameworkStores<AppDbContex>();
+                .AddEntityFrameworkStores<AppDbContex>()
+                .AddDefaultTokenProviders();
 
             services.AddAuthentication()
                     .AddGoogle(options =>
