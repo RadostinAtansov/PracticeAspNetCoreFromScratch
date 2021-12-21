@@ -202,3 +202,5 @@ C:\Users\radul\Desktop\asp\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithK
 C:\Users\radul\Desktop\asp\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\Razor\Views\Account\ConfirmEmail.cshtml.g.cs
 C:\Users\radul\Desktop\asp\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\Razor\Views\Account\ForgotPassword.cshtml.g.cs
 C:\Users\radul\Desktop\asp\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\Razor\Views\Account\ForgotPasswordConfirmation.cshtml.g.cs
+C:\Users\radul\Desktop\asp\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\Razor\Views\Account\ResetPassword.cshtml.g.cs
+C:\Users\radul\Desktop\asp\PracticeAspNetCoreFromScratch\PracticeAspNetCoreWithKunvenkat\obj\Debug\netcoreapp5.0\Razor\Views\Account\ResetPasswordConfirmation.cshtml.g.cs
